@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 @Repository
 public interface FlightRepository extends JpaRepository<Flight,Long> {
-    HashSet<Flight> findByDepartureLocationAndArrivalLocation(String source, String destination);
+    List<Flight> findByDepatureLocationAndArrivalLocation(String source, String destination);
 }

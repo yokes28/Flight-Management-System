@@ -5,6 +5,7 @@ import com.nineleaps.flightmanagementsystem.entity.User;
 import com.nineleaps.flightmanagementsystem.service.InterfaceServiceImplementation.InterfaceFlightImplementation;
 import com.nineleaps.flightmanagementsystem.service.InterfaceServiceImplementation.InterfaceUserImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-    @Autowired
+   @Autowired
     private InterfaceFlightImplementation flightImp;
     @Autowired
     private InterfaceUserImplementation userImp;

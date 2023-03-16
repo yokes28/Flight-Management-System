@@ -9,34 +9,34 @@ import com.nineleaps.flightmanagementsystem.repository.*;
 @Service
 public class InterfaceFlightImplementation implements InterfaceFlight {
     @Autowired
-    private FlightRepository flightrepo;
+    private FlightRepository flightRepo;
     @Override
     public Flight addFlight(Flight newFlight){
-        return flightrepo.save(newFlight);
+        return flightRepo.save(newFlight);
     }
     
     @Override
     public String deleteFlight(Long flightId){
-        flightrepo.deleteById(flightId);
+        flightRepo.deleteById(flightId);
         return "flight deleted";
     }
 
     @Override
     public Flight modifyFlight(Long flightId,Flight updatedFlight){
-        Flight res = flightrepo.findById(flightId).get();
+        Flight res = flightRepo.findById(flightId).get();
         if (res != null) {
             res.setDepatureLocation(updatedFlight.getDepatureLocation());
             res.setArrivalLocation(updatedFlight.getArrivalLocation());
             res.setDepartureTime(updatedFlight.getDepartureTime());
             res.setArrivalTime(updatedFlight.getArrivalTime());
         }
-        flightrepo.save(res);
+        flightRepo.save(res);
         return res;
     }
 
     @Override
     public List<Flight> getAllFlights(){
-        return flightrepo.findAll();
+        return flightRepo.findAll();
     }
 
 }

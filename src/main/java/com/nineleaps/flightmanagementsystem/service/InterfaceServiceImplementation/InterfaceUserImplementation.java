@@ -6,7 +6,7 @@ import com.nineleaps.flightmanagementsystem.entity.Flight;
 import com.nineleaps.flightmanagementsystem.entity.Passenger;
 import com.nineleaps.flightmanagementsystem.entity.User;
 import com.nineleaps.flightmanagementsystem.service.InterfaceService.InterfaceUser;
-import java.util.HashSet;
+
 import java.util.List;
 import com.nineleaps.flightmanagementsystem.repository.UserRepository;
 import com.nineleaps.flightmanagementsystem.repository.FlightRepository;
@@ -43,9 +43,14 @@ public class InterfaceUserImplementation implements InterfaceUser {
         return userRepo.findAll();
     }
 
+//    @Override
+//    public List<Flight> searchFlight(String source, String Destination) {
+//        return null;
+//    }
+
     @Override
-    public HashSet<Flight> searchFlight(String source,String Destination){
-        return flightRepo.findByDepartureLocationAndArrivalLocation(source, Destination);
+    public List<Flight> searchFlight(String source, String Destination){
+        return flightRepo.findByDepatureLocationAndArrivalLocation(source, Destination);
     }
 
     @Override
